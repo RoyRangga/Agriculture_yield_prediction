@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
-import json
+#import json
 from sklearn.preprocessing import StandardScaler
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 
@@ -40,14 +40,14 @@ def predict_datapoint():
 		result_message = "The prediction for vegetables commodities yield is {} Ton.".format(round(results[0], 2))
 		return render_template('home.html', results=result_message)
 
-@app.route('/results',methods=['POST'])
-def results():
+#@app.route('/results',methods=['POST'])
+#def results():
 
-    data = request.get_json(force=True)
-    prediction = predict_pipeline.predict([np.array(list(data.values()))])
+#    data = request.get_json(force=True)
+#    prediction = predict_pipeline.predict([np.array(list(data.values()))])
 
-    output = round(prediction[0], 2)
-    return jsonify(output)
+#    output = round(prediction[0], 2)
+#    return jsonify(output)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
