@@ -10,12 +10,12 @@ app=application
 
 @app.route('/')
 def index():
-    return render_template('home2.html')
+    return render_template('home.html')
 
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
 	if request.method=='GET':
-		return render_template('home2.html')
+		return render_template('home.html')
 	else:
 		data=CustomData(
 			province_name=request.form.get('province_name'),
@@ -38,7 +38,7 @@ def predict_datapoint():
 		results=predict_pipeline.predict(pred_df)
 		
 		result_message = "The prediction for vegetables commodities yield is {} Ton.".format(round(results[0], 2))
-		return render_template('home2.html', results=result_message)
+		return render_template('home.html', results=result_message)
 
 @app.route('/results',methods=['POST'])
 def results():

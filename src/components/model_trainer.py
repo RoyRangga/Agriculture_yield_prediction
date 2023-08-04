@@ -121,7 +121,7 @@ class ModelTrainer:
             data_parameters["parameter_name"]=parameters.keys()
             data_parameters["argument_name"]=list(parameters.values())
 
-            return r2_squared, model_report, data_parameters
+            return r2_squared #, model_report, data_parameters
 
         except Exception as e:
             raise CustomException(e, sys)
